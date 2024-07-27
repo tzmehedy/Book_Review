@@ -1,0 +1,80 @@
+[
+  {
+    "bookId": "1",
+    "bookName": "The Enchanted Forest",
+    "author": "Avery Mitchell",
+    "image": "http://example.com/images/enchanted_forest.jpg",
+    "review": "A mesmerizing tale of magic and adventure.",
+    "totalPages": 320,
+    "rating": 4.8,
+    "category": "Fantasy",
+    "tags": ["magic", "adventure", "fantasy"],
+    "publisher": "Dreamscape Publishing",
+    "yearOfPublishing": 2021
+  },
+  {
+    "bookId": "2",
+    "bookName": "Tech Revolution",
+    "author": "Jordan Lee",
+    "image": "http://example.com/images/tech_revolution.jpg",
+    "review": "An insightful look into the future of technology.",
+    "totalPages": 250,
+    "rating": 4.5,
+    "category": "Non-Fiction",
+    "tags": ["technology", "innovation", "future"],
+    "publisher": "Innovation Press",
+    "yearOfPublishing": 2019
+  },
+  {
+    "bookId": "3",
+    "bookName": "Mystery at Midnight",
+    "author": "Harper Quinn",
+    "image": "http://example.com/images/mystery_midnight.jpg",
+    "review": "A gripping mystery that keeps you on the edge of your seat.",
+    "totalPages": 300,
+    "rating": 4.7,
+    "category": "Mystery",
+    "tags": ["mystery", "thriller", "suspense"],
+    "publisher": "Mystery House",
+    "yearOfPublishing": 2020
+  },
+  {
+    "bookId": "4",
+    "bookName": "Love in Paris",
+    "author": "Taylor Morgan",
+    "image": "http://example.com/images/love_paris.jpg",
+    "review": "A heartwarming romance set in the beautiful city of Paris.",
+    "totalPages": 280,
+    "rating": 4.6,
+    "category": "Romance",
+    "tags": ["romance", "love", "Paris"],
+    "publisher": "Romantic Reads",
+    "yearOfPublishing": 2018
+  },
+  {
+    "bookId": "5",
+    "bookName": "Journey to Mars",
+    "author": "Casey Roberts",
+    "image": "http://example.com/images/journey_mars.jpg",
+    "review": "An exciting sci-fi adventure to the red planet.",
+    "totalPages": 350,
+    "rating": 4.9,
+    "category": "Science Fiction",
+    "tags": ["sci-fi", "space", "adventure"],
+    "publisher": "Galactic Press",
+    "yearOfPublishing": 2022
+  },
+  {
+    "bookId": "6",
+    "bookName": "Culinary Delights",
+    "author": "Morgan Taylor",
+    "image": "http://example.com/images/culinary_delights.jpg",
+    "review": "A collection of mouth-watering recipes from around the world.",
+    "totalPages": 200,
+    "rating": 4.4,
+    "category": "Cooking",
+    "tags": ["cooking", "recipes", "food"],
+    "publisher": "Gourmet Publications",
+    "yearOfPublishing": 2017
+  }
+]
