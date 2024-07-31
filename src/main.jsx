@@ -1,12 +1,12 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ListedBooks from './Pages/ListedBooks'
-import PagesToRead from './Pages/PagesToRead'
-import Home from './Pages/Home'
-import App from './App'
-import Book from './Pages/Book'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ListedBooks from "./Pages/ListedBooks";
+import PagesToRead from "./Pages/PagesToRead";
+import Home from "./Pages/Home";
+import App from "./App";
+import Book from "./Pages/Book";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <App></App>,
     children: [
       {
-        index:true,
+        path: "/",
         element: <Home></Home>,
         loader: () => fetch("fakeData.json"),
       },
@@ -34,8 +34,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

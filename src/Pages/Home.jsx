@@ -4,7 +4,6 @@ import Books from "../Components/Books";
 
 const Home = () => {
   const books = useLoaderData()
-
   
     return (
       <div className="container mx-auto">
@@ -25,8 +24,8 @@ const Home = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 p-3">
-          {books.map((book) => (
-            <Books book={book} key={book.id}></Books>
+          {Array.isArray(books) && books?.map((book) => (
+            <Books book={book} key={book.bookId}></Books>
           ))}
         </div>
       </div>
