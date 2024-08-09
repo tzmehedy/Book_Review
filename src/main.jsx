@@ -7,6 +7,9 @@ import PagesToRead from "./Pages/PagesToRead";
 import Home from "./Pages/Home";
 import App from "./App";
 import Book from "./Pages/Book";
+import ReadBooks from "./Components/ReadBooks";
+import WishListBooks from "./Components/WishListBooks";
+
 
 const router = createBrowserRouter([
   {
@@ -21,6 +24,18 @@ const router = createBrowserRouter([
       {
         path: "/listedBooks",
         element: <ListedBooks></ListedBooks>,
+        children: [
+          {
+            index: true,
+            element: <ReadBooks></ReadBooks>,
+            loader: () => fetch("fakeData.json"),
+          },
+          {
+            path: "wishlistBooks",
+            element: <WishListBooks></WishListBooks>,
+            loader: () => fetch("fakeData.json"),
+          },
+        ],
       },
       {
         path: "/pagesToRead",
@@ -29,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "/book/:bookId",
         element: <Book></Book>,
-        loader: ()=>fetch("fakeData.json")
+        loader: () => fetch("fakeData.json"),
       },
     ],
   },
@@ -38,5 +53,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <RouterProvider router={router}></RouterProvider>
+   
   </React.StrictMode>
 );

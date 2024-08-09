@@ -1,5 +1,7 @@
 import { useLoaderData, useParams } from "react-router-dom";
-
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { getLocalStorage, saveLocalStorage } from "../utilities/localstorage";
 const Book = () => {
 
     const params = useParams()
@@ -10,10 +12,60 @@ const Book = () => {
       Array.isArray(books) &&
        books?.find((book) => book.bookId === params.bookId);
 
-    console.log(selectedBook)
+    const handelRead = () =>{
+
+      const getReadBookList = getLocalStorage("readBooksId")
+
+      const isExist = getReadBookList.find(
+        (readBookId) => readBookId === params.bookId
+      );
+
+      if(!isExist){
+        saveLocalStorage(params.bookId, "readBooksId");
+        toast("successfully added");
+      }
+      else{
+        toast("Already Read")
+      }
+    }
+
+    const handelWishlist= ()=>{
+      const getWishList = getLocalStorage("wishlistBooksID");
+      const getReadBookList = getLocalStorage("readBooksId");
+
+      // console.log(getReadBookList)
+
+      // const isExist = getWishList.find(
+      //   (wishBookId) => wishBookId === params.bookId
+      // );
+
+      function isExist(){
+        for(let i=0; i<getReadBookList.length; i++){
+          for(let j=0; j<getWishList.length;j++){
+            if(getReadBookList[i]=== getWishList[j]){
+              return true
+            }
+            else{
+              return false
+            }
+          }
+
+        }
+      }
+
+      let isExistCheck = isExist()
+
+      console.log(isExistCheck);
+      if (isExistCheck === true || isExistCheck === undefined) {
+        saveLocalStorage(params.bookId, "wishlistBooksID");
+        toast("Successfully added");
+      } else {
+        toast("Already Read");
+      }
+    }
     
     return (
-      <div className="flex justify-around items-center max-h-screen space-y-20 mb-10">
+      <div className="flex flex-col md:flex-row justify-around items-center max-h-screen space-y-20 mb-10">
         <div>
           <img src={selectedBook.image} alt="" />
         </div>
@@ -43,12 +95,18 @@ const Book = () => {
           </div>
 
           <div className="flex justify-start space-x-5">
-            <button className="border border-[#131313] rounded-lg px-3 py-1">
+            <button
+              onClick={handelRead}
+              className="border border-[#131313] rounded-lg px-3 py-1"
+            >
               Read
             </button>
-            <button className="bg-[#50B1C9] px-4 py-1 rounded-lg">Wishlist</button>
+            <button onClick={handelWishlist} className="bg-[#50B1C9] px-4 py-1 rounded-lg">
+              Wishlist
+            </button>
           </div>
         </div>
+        <ToastContainer></ToastContainer>
       </div>
     );
 };
