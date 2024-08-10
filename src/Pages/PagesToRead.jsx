@@ -19,8 +19,8 @@ const PagesToRead = () => {
   return (
     <div className="flex justify-center">
       <BarChart
-        width={800}
-        height={500}
+        width={1000}
+        height={400}
         data={selectedReadBooks}
         margin={{
           top: 20,
@@ -33,9 +33,10 @@ const PagesToRead = () => {
         <XAxis dataKey="bookName" />
         <YAxis />
         <Bar dataKey="totalPages" fill="#8884d8" label={{ position: "top" }}>
-          {selectedReadBooks.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={colors[index % 30]} />
-          ))}
+          {Array.isArray(selectedReadBooks) &&
+            selectedReadBooks?.map((entry, index) => (
+              <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+            ))}
         </Bar>
       </BarChart>
     </div>
