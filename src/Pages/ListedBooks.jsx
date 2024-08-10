@@ -1,18 +1,42 @@
 
 import { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-
+import { IoIosArrowDown } from "react-icons/io";
 const ListedBooks = () => {
 
     const [isActive, setActive] = useState(0);
 
     return (
       <div>
-        <div className="flex items-center mx-4 overflow-x-auto overflow-y-hidden flex-nowrap dark:bg-gray-100 dark:text-gray-800">
+        <div className="bg-gray-400 p-12">
+          <h1 className="font-bold text-center text-2xl">Books</h1>
+        </div>
+        <div className="flex justify-center items-center mt-10">
+          <h1 className="bg-[#23BE0A] p-3 rounded-lg font-bold">Short By</h1>
+          <div className="dropdown dropdown-bottom">
+            <div tabIndex={0} role="button" className=" p-4 rounded-lg rounded-l-none bg-[#23BE0A] -ml-2">
+              <IoIosArrowDown />
+            </div>
+            <ul
+              tabIndex={0}
+              className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+            >
+              <li>
+                <a>Rating</a>
+              </li>
+              <li>
+                <a>Publish Date</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="flex items-center mx-4 overflow-x-auto mt-10 overflow-y-hidden flex-nowrap dark:bg-gray-100 dark:text-gray-800">
           <Link
             to={""}
             onClick={() => setActive(0)}
-            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${isActive === 0 ? "border border-b-0 rounded-t-lg" : "border-b"} dark:border-gray-600 dark:text-gray-600`}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+              isActive === 0 ? "border border-b-0 rounded-t-lg" : "border-b"
+            } dark:border-gray-600 dark:text-gray-600`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +55,9 @@ const ListedBooks = () => {
           <Link
             to={"wishlistBooks"}
             onClick={() => setActive(1)}
-            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${isActive === 1 ? "border border-b-0 rounded-t-lg" : "border-b"} dark:border-gray-600 dark:text-gray-900`}
+            className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
+              isActive === 1 ? "border border-b-0 rounded-t-lg" : "border-b"
+            } dark:border-gray-600 dark:text-gray-900`}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -10,7 +10,6 @@ const ReadBooks = () => {
      readBooks.includes(book.bookId)
    );
 
-   console.log(selectedReadBooks);
     return (
       <div>
         {Array.isArray(selectedReadBooks) &&
